@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aula USM – Detalle del aviso</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+<!-- Google Fonts + Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: { DEFAULT: "#003366", light: "#00AEEF" },
+          "background-light": "#F8F9FA",
+          "background-dark": "#121212",
+          "card-light": "#FFFFFF",
+          "card-dark": "#1E1E1E",
+          "text-light": "#212529",
+          "text-dark": "#E0E0E0",
+          "subtle-light": "#6C757D",
+          "subtle-dark": "#A0A0A0",
+          "border-light": "#DEE2E6",
+          "border-dark": "#333333"
+        },
+        fontFamily: { display: ["Roboto", "sans-serif"] },
+        borderRadius: { DEFAULT: "0.5rem" },
+      },
+    },
+  };
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div id="root">
+  <!-- Header (igual al resto) -->
+  <header class="bg-white dark:bg-card-dark border-b border-border-light dark:border-border-dark sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between py-3">
+        <div class="flex items-center gap-3">
+          <a href="home-principal.html" class="inline-flex items-center" aria-label="Ir a la página principal">
+            <img src="//aula.usm.cl/pluginfile.php/1/theme_moove/logo/1756716003/marca-color.png" class="h-8" alt="AULA USM">
+          </a>
+          <nav class="hidden md:flex items-center gap-6 text-sm text-subtle-light dark:text-subtle-dark">
+            <a href="home-principal.html" class="hover:text-primary-light">Página Principal</a>
+            <a href="area-personal.html" class="hover:text-primary-light">Área personal</a>
+            <a href="modulos.html" class="hover:text-primary-light">Mis cursos</a>
+          </nav>
+        </div>
+        <div class="flex items-center gap-3">
+          <button class="text-subtle-light dark:text-subtle-dark hover:text-primary-light" aria-label="Buscar">
+            <span class="material-icons">search</span>
+          </button>
+          <button class="text-subtle-light dark:text-subtle-dark hover:text-primary-light" aria-label="Notificaciones">
+            <span class="material-icons">notifications</span>
+          </button>
+          <img class="h-8 w-8 rounded-full"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPYlZGznwjbqpN6_x03eAzoC3cHnOkMbhbmM60njKzn1DzFMtDnEJWObBYdxx3V_NqSbhNROtuprINEB_QcPkdO4ir7_s7to-QeURFhXyeBRYuyGra7ZaCL3XG-SkCS4LvmYyQAx3SQN27tBr2M-EbA9Zkcmrq0qP-fKX-bMN8JoSJzEpDhqOwi_lp1xCh9YQEjH7NBx9-3VVQTd0T2AnsEc0UxKiKNSkYisAu1UMODSRrEqH5z_aj1bojGCpHrZ9jtD-ob4RaGG0"
+               alt="Usuario">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-6">
+    <!-- Hero (mismo estilo) -->
+    <section class="bg-primary-DEFAULT text-white rounded-lg p-6 mb-8 shadow-lg"
+             style="background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://i.imgur.com/d9T3Y8y.jpeg') no-repeat center center / cover;">
+      <div class="flex justify-between items-center">
+        <div>
+          <h1 class="text-2xl md:text-3xl font-bold">IWI131 - Programación</h1>
+          <p class="text-lg opacity-90">Departamento de Informática</p>
+          <p class="text-lg opacity-90">2024 - Semestre 1</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabs (idénticos a las vistas base) -->
+    <nav aria-label="Secciones del curso" class="mb-6">
+      <div class="border-b border-border-light dark:border-border-dark">
+        <div class="flex gap-6 -mb-px">
+          <!-- Dejamos Información General como “activa” para consistencia visual -->
+          <a href="home-curso2.html"
+             class="px-3 py-2 font-semibold text-primary-DEFAULT dark:text-primary-light border border-border-light dark:border-border-dark border-b-0 rounded-t-lg bg-card-light dark:bg-card-dark shadow-sm"
+             aria-current="page">
+            Información General
+          </a>
+          <a href="list-modulos.html" class="px-3 py-2 text-primary-DEFAULT/90 dark:text-primary-light/90 hover:text-primary-light">Material</a>
+          <a href="tareas.html" class="px-3 py-2 text-primary-DEFAULT/90 dark:text-primary-light/90 hover:text-primary-light">Tareas</a>
+          <a href="evaluaciones.html" class="px-3 py-2 text-primary-DEFAULT/90 dark:text-primary-light/90 hover:text-primary-light">Calificaciones</a>
+          <a href="foro.html" class="px-3 py-2 text-primary-DEFAULT/90 dark:text-primary-light/90 hover:text-primary-light">Foro</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Encabezado de sección + Volver (alineado a la derecha como en la captura) -->
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+      <h2 class="text-xl font-bold text-primary-DEFAULT dark:text-primary-light">Noticias y Avisos</h2>
+      <a href="home-curso2.html"
+         class="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-border-light dark:border-border-dark text-sm font-semibold hover:bg-background-light dark:hover:bg-background-dark">
+        <span class="material-icons text-sm">arrow_back</span>
+        Volver a Información General
+      </a>
+    </div>
+
+    <!-- Card del aviso (detalle) -->
+    <article class="bg-card-light dark:bg-card-dark rounded-lg border border-border-light dark:border-border-dark shadow-sm">
+      <header class="p-6 border-b border-border-light dark:border-border-dark">
+        <div class="flex items-start gap-3">
+          <span class="material-icons text-primary-light mt-1" aria-hidden="true">priority_high</span>
+          <div class="flex-1">
+            <h1 class="text-2xl md:text-3xl font-bold leading-tight">
+              Cambio de fecha Certamen 2
+            </h1>
+            <div class="mt-2 flex flex-wrap items-center gap-3 text-sm text-subtle-light dark:text-subtle-dark">
+              <div class="inline-flex items-center gap-2">
+                <img src="https://i.pravatar.cc/48?img=12" alt="Avatar profe" class="w-6 h-6 rounded-full"/>
+                <span><strong>Prof. Germán Fernández</strong></span>
+              </div>
+              <span aria-hidden="true">•</span>
+              <!-- fecha legible + datetime exacto -->
+              <time datetime="2024-07-03T09:32:00-04:00" title="miércoles, 3 de julio de 2024 a las 09:32 (GMT-4)">
+                Publicado el 03/07/2024 a las 09:32
+              </time>
+ 
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="p-6 prose prose-sm md:prose-base dark:prose-invert max-w-none">
+        <p>Estimadas/os, debido a ajustes de coordinación con otros cursos y para favorecer la preparación,
+          el <strong>Certamen 2</strong> se <strong>reprograma para el miércoles 10 de julio</strong>, en el horario habitual.</p>
+        <ul>
+ 
+          <li><strong>Formato:</strong> presencial, sin material de apoyo impreso. Se permite 1 hoja manuscrita por un lado.</li>
+          <li><strong>Duración:</strong> 90 minutos.</li>
+          <li><strong>Salas:</strong> F-25 y F-27.</li>
+        </ul>
+        <p>Si tienes un choque horario con otra evaluación institucional, por favor completa el formulario de
+          <a href="#" class="text-primary-DEFAULT hover:text-primary-light underline">“solicitud de excepción”</a> antes del 07/07 a las 23:59.</p>
+
+        <div class="mt-6 flex flex-wrap items-center gap-2 text-xs text-subtle-light dark:text-subtle-dark">
+          <span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark">
+            <span class="material-icons text-[16px]">label</span> Evaluaciones
+          </span>
+          <span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark">
+            <span class="material-icons text-[16px]">calendar_today</span> Certamen 2
+          </span>
+          <a href="#" class="inline-flex items-center gap-1 px-2 py-1 rounded border border-border-light dark:border-border-dark hover:bg-background-light dark:hover:bg-background-dark">
+            <span class="material-icons text-[16px]">file_download</span> Adjuntos (0)
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Hilo de respuestas tipo foro -->
+    <section aria-labelledby="foro-titulo" class="mt-8">
+      <div class="flex items-center justify-between mb-3">
+        <h3 id="foro-titulo" class="text-xl font-bold text-primary-DEFAULT dark:text-primary-light">Respuestas</h3>
+        <span class="text-sm text-subtle-light dark:text-subtle-dark" id="contador-respuestas">2 respuestas</span>
+      </div>
+
+      <!-- Lista de respuestas -->
+      <ol id="lista-respuestas" class="space-y-4">
+        <li class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-4">
+          <div class="flex items-start gap-3">
+            <img src="https://i.pravatar.cc/40?img=32" alt="" class="w-10 h-10 rounded-full"/>
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center gap-2 text-sm text-subtle-light dark:text-subtle-dark">
+                <strong class="text-text-light dark:text-text-dark">Diego Mella (Ayudante)</strong>
+                <span aria-hidden="true">•</span>
+                <time datetime="2024-07-03T10:05:00-04:00" title="03/07/2024 10:05">hace 27 min</time>
+              </div>
+              <p class="mt-2">El listado por sala se publicará en esta misma página el 08/07. Cualquier duda, me escriben.</p>
+            </div>
+            <button class="ml-2 text-subtle-light hover:text-primary-light" title="Más opciones" aria-label="Más opciones">
+              <span class="material-icons">more_vert</span>
+            </button>
+          </div>
+        </li>
+
+        <li class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-4">
+          <div class="flex items-start gap-3">
+            <img src="https://i.pravatar.cc/40?img=15" alt="" class="w-10 h-10 rounded-full"/>
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center gap-2 text-sm text-subtle-light dark:text-subtle-dark">
+                <strong class="text-text-light dark:text-text-dark">Camila Soto</strong>
+                <span aria-hidden="true">•</span>
+                <time datetime="2024-07-03T10:12:00-04:00" title="03/07/2024 10:12">hace 20 min</time>
+              </div>
+              <p class="mt-2">¿Se mantiene el mismo formato de preguntas cortas + 1 desarrollo?</p>
+              <div class="mt-3 flex gap-2">
+                <button class="text-sm inline-flex items-center gap-1 px-2 py-1 rounded border border-border-light dark:border-border-dark hover:bg-background-light dark:hover:bg-background-dark">
+                  <span class="material-icons text-[16px]">thumb_up</span> 1
+                </button>
+                <button class="text-sm inline-flex items-center gap-1 px-2 py-1 rounded border border-border-light dark:border-border-dark hover:bg-background-light dark:hover:bg-background-dark">
+                  <span class="material-icons text-[16px]">reply</span> Responder
+                </button>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ol>
+
+      <!-- Formulario para responder -->
+      <div class="mt-6 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg">
+        <form id="form-respuesta" class="p-4 space-y-3" novalidate>
+          <div class="flex items-start gap-3">
+            <img src="https://i.pravatar.cc/40?img=68" alt="" class="w-10 h-10 rounded-full"/>
+            <div class="flex-1">
+              <label for="mensaje" class="sr-only">Escribe tu respuesta</label>
+              <textarea id="mensaje" name="mensaje" rows="4" required
+                        class="w-full rounded-md border border-border-light dark:border-border-dark bg-transparent focus:ring-primary-light focus:border-primary-light"
+                        placeholder="Escribe tu respuesta (texto simple)"></textarea>
+
+              <div class="mt-2 flex flex-wrap items-center gap-2 text-sm text-subtle-light dark:text-subtle-dark">
+                <label class="inline-flex items-center gap-2">
+                  <input type="checkbox" class="rounded"/>
+                  Enviar también por correo
+                </label>
+                <button type="button" id="btn-adjuntar"
+                        class="inline-flex items-center gap-1 px-2 py-1 rounded border border-border-light dark:border-border-dark hover:bg-background-light dark:hover:bg-background-dark">
+                  <span class="material-icons text-[16px]">attach_file</span> Adjuntar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-end gap-2 pt-1">
+            <button type="reset" class="px-3 py-2 rounded-md border border-border-light dark:border-border-dark hover:bg-card-light/60 dark:hover:bg-card-dark/60">
+              Limpiar
+            </button>
+            <button type="submit" class="px-3 py-2 rounded-md bg-primary-DEFAULT text-white hover:bg-primary-light">
+              Publicar respuesta
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- Demo JS: agrega la respuesta al hilo (sin backend) -->
+<script>
+  const form = document.getElementById('form-respuesta');
+  const lista = document.getElementById('lista-respuestas');
+  const contador = document.getElementById('contador-respuestas');
+
+  function actualizarContador() {
+    const total = lista.querySelectorAll('li').length;
+    contador.textContent = total + (total === 1 ? ' respuesta' : ' respuestas');
+  }
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const textarea = form.querySelector('#mensaje');
+    const texto = textarea.value.trim();
+    if (!texto) { textarea.focus(); return; }
+
+    const li = document.createElement('li');
+    li.className = "bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-4";
+    li.innerHTML = `
+      <div class="flex items-start gap-3">
+        <img src="https://i.pravatar.cc/40?img=68" alt="" class="w-10 h-10 rounded-full"/>
+        <div class="flex-1">
+          <div class="flex flex-wrap items-center gap-2 text-sm text-subtle-light dark:text-subtle-dark">
+            <strong class="text-text-light dark:text-text-dark">Tú</strong>
+            <span aria-hidden="true">•</span>
+            <time datetime="${new Date().toISOString()}">ahora</time>
+          </div>
+          <p class="mt-2"></p>
+        </div>
+      </div>
+    `;
+    li.querySelector('p').textContent = texto;
+
+    lista.appendChild(li);
+    textarea.value = '';
+    actualizarContador();
+  });
+
+  actualizarContador();
+</script>
+</body>
+</html>

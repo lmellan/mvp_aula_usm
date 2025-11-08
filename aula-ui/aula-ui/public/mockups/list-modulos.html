@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Aula USM – Lista de Material</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+  <!-- Google Fonts + Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+  <!-- Tailwind config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: "#003366", light: "#00AEEF" },
+            "background-light": "#F8F9FA",
+            "background-dark": "#121212",
+            "card-light": "#FFFFFF",
+            "card-dark": "#1E1E1E",
+            "text-light": "#212529",
+            "text-dark": "#E0E0E0",
+            "subtle-light": "#6C757D",
+            "subtle-dark": "#A0A0A0",
+            "border-light": "#DEE2E6",
+            "border-dark": "#333333"
+          },
+          fontFamily: { display: ["Roboto","sans-serif"] },
+          borderRadius: { DEFAULT: "0.5rem" },
+          boxShadow: {
+            card: "0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04)"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+  <!-- Header compacto -->
+  <header class="bg-white dark:bg-card-dark border-b border-border-light dark:border-border-dark sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between py-3">
+        <div class="flex items-center gap-3">
+          <a href="home-principal.html" class="inline-flex items-center" aria-label="Ir a la página principal">
+            <img src="//aula.usm.cl/pluginfile.php/1/theme_moove/logo/1756716003/marca-color.png" class="h-8" alt="AULA USM">
+          </a>
+          <nav class="hidden md:flex items-center gap-6 text-sm text-subtle-light dark:text-subtle-dark">
+            <a href="home-principal.html" class="hover:text-primary-light">Página Principal</a>
+            <a href="area-personal.html" class="hover:text-primary-light">Área personal</a>
+            <a href="modulos.html" class="hover:text-primary-light">Mis cursos</a>
+          </nav>
+        </div>
+        <div class="flex items-center gap-3">
+          <button class="text-subtle-light dark:text-subtle-dark hover:text-primary-light" aria-label="Buscar">
+            <span class="material-icons">search</span>
+          </button>
+          <button class="text-subtle-light dark:text-subtle-dark hover:text-primary-light" aria-label="Notificaciones">
+            <span class="material-icons">notifications</span>
+          </button>
+          <img class="h-8 w-8 rounded-full"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPYlZGznwjbqpN6_x03eAzoC3cHnOkMbhbmM60njKzn1DzFMtDnEJWObBYdxx3V_NqSbhNROtuprINEB_QcPkdO4ir7_s7to-QeURFhXyeBRYuyGra7ZaCL3XG-SkCS4LvmYyQAx3SQN27tBr2M-EbA9Zkcmrq0qP-fKX-bMN8JoSJzEpDhqOwi_lp1xCh9YQEjH7NBx9-3VVQTd0T2AnsEc0UxKiKNSkYisAu1UMODSRrEqH5z_aj1bojGCpHrZ9jtD-ob4RaGG0"
+               alt="Usuario">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-6">
+    <!-- Recuadro del curso -->
+    <section class="bg-primary-DEFAULT text-white rounded-lg p-6 mb-8 shadow-lg"
+             style="background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://i.imgur.com/d9T3Y8y.jpeg') no-repeat center center; background-size: cover;">
+      <div class="flex justify-between items-center">
+        <div>
+          <h1 class="text-2xl md:text-3xl font-bold">IWI131 - Programación</h1>
+          <p class="text-lg opacity-90">Departamento de Informática</p>
+          <p class="text-lg opacity-90">2024 - Semestre 1</p>
+        </div>
+      </div>
+    </section>
+
+ 
+
+    <!-- Barra de navegación (antes "Tabs") -->
+    <nav aria-label="Secciones del curso" class="mb-6">
+      <div class="border-b border-border-light dark:border-border-dark">
+        <div class="flex gap-6 -mb-px">
+ 
+          <a href="home-curso2.html"
+             class="px-3 py-2 text-primary-DEFAULT/90 dark:text-primary-light/90 hover:text-primary-light"
+             aria-label="Ir a información General">
+            Información General
+          </a>
+          <a href="list-modulos.html"
+            class="px-3 py-2 font-semibold text-primary-DEFAULT dark:text-primary-light border border-border-light dark:border-border-dark border-b-0 rounded-t-lg bg-card-light dark:bg-card-dark shadow-sm"
+            aria-current="page">
+            Material
+          </a>
+
+          <a href="tareas.html"
+             class="px-3 py-2 text-primary-DEFAULT/90 dark:text-primary-light/90 hover:text-primary-light"
+             aria-label="Ir a Tareas ">
+            Tareas
+          </a>
+
+          <a href="evaluaciones.html"
+             class="px-3 py-2 text-primary-DEFAULT/90 dark:text-primary-light/90 hover:text-primary-light"
+             aria-label="ir a Calificaciones">
+            Calificaciones
+          </a>
+        <a href="evaluaciones.html"
+             class="px-3 py-2 text-primary-DEFAULT/90 dark:text-primary-light/90 hover:text-primary-light"
+             aria-label="ir a Calificaciones">
+            Foro
+          </a>
+        </div>
+      </div>
+    </nav>
+ 
+    <!-- Lista de módulos -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <!-- Módulo 1 -->
+  <article class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-6 shadow-sm hover:shadow-card transition-shadow flex flex-col justify-between">
+    <div>
+      <h2 class="text-xl font-bold text-primary-DEFAULT dark:text-primary-light mb-2">
+        Módulo 1: Introducción a la Ingeniería y Fundamentos Básicos
+      </h2>
+      <p class="text-sm text-subtle-light dark:text-subtle-dark mb-4">
+        Clases y recursos clave para comprender los fundamentos y preparar el <b>Certamen 1</b>.
+      </p>
+    </div>
+    <a href="modulo.html?m=1"
+       class="mt-auto inline-flex items-center justify-center h-10 px-4 rounded-lg bg-primary-light text-white text-sm font-medium hover:opacity-90 self-start"
+       aria-label="Ver detalles del Módulo 1">
+      Ver detalles
+    </a>
+  </article>
+
+  <!-- Módulo 2 -->
+  <article class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-6 shadow-sm hover:shadow-card transition-shadow flex flex-col justify-between">
+    <div>
+      <h2 class="text-xl font-bold text-primary-DEFAULT dark:text-primary-light mb-2">
+        Módulo 2: Herramientas de Programación y Buenas Prácticas
+      </h2>
+      <p class="text-sm text-subtle-light dark:text-subtle-dark mb-4">
+        Material orientado al uso de herramientas y prácticas de programación para preparar el <b>Certamen 2</b>.
+      </p>
+    </div>
+    <a href="modulo.html?m=2"
+       class="mt-auto inline-flex items-center justify-center h-10 px-4 rounded-lg bg-primary-light text-white text-sm font-medium hover:opacity-90 self-start"
+       aria-label="Ver detalles del Módulo 2">
+      Ver detalles
+    </a>
+  </article>
+
+  <!-- Módulo 3 -->
+  <article class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-6 shadow-sm hover:shadow-card transition-shadow flex flex-col justify-between">
+    <div>
+      <h2 class="text-xl font-bold text-primary-DEFAULT dark:text-primary-light mb-2">
+        Módulo 3: Estructuras de Datos y Resolución de Problemas
+      </h2>
+      <p class="text-sm text-subtle-light dark:text-subtle-dark mb-4">
+        Clases y actividades centradas en estructuras de datos y análisis para preparar el <b>Certamen 3</b>.
+      </p>
+    </div>
+    <a href="modulo.html?m=3"
+       class="mt-auto inline-flex items-center justify-center h-10 px-4 rounded-lg bg-primary-light text-white text-sm font-medium hover:opacity-90 self-start"
+       aria-label="Ver detalles del Módulo 3">
+      Ver detalles
+    </a>
+  </article>
+</section>
+ 
+  </main>
+</body>
+</html>

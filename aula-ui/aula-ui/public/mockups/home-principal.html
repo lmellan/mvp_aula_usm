@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aula USM - Página Principal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: { DEFAULT: "#003366", light: "#00AEEF" },
+          "background-light": "#F8F9FA",
+          "background-dark": "#121212",
+          "card-light": "#FFFFFF",
+          "card-dark": "#1E1E1E",
+          "text-light": "#212529",
+          "text-dark": "#E0E0E0",
+          "subtle-light": "#6C757D",
+          "subtle-dark": "#A0A0A0",
+          "border-light": "#DEE2E6",
+          "border-dark": "#333333"
+        },
+        fontFamily: { display: ["Roboto", "sans-serif"] },
+        borderRadius: { DEFAULT: "0.5rem" },
+      },
+    },
+  };
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div id="root">
+  <!-- Header -->
+  <header class="bg-white dark:bg-card-dark shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center py-2">
+        <div class="flex items-center space-x-4">
+          <a href="home-principal.html" class="inline-flex items-center" aria-label="Ir a la página principal del sitio">
+            <img src="//aula.usm.cl/pluginfile.php/1/theme_moove/logo/1756716003/marca-color.png" class="h-8" alt="AULA USM">
+          </a>
+          <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-subtle-light dark:text-subtle-dark">
+            <a class="hover:text-primary-light" href="home-principal.html">Página Principal</a>
+            <a class="hover:text-primary-light" href="area-personal.html">Área personal</a>
+            <a class="hover:text-primary-light" href="modulos.html">Mis cursos</a>
+          </nav>
+        </div>
+        <div class="flex items-center space-x-4">
+          <button class="text-subtle-light dark:text-subtle-dark hover:text-primary-light" aria-label="Buscar">
+            <span class="material-icons">search</span>
+          </button>
+          <button class="text-subtle-light dark:text-subtle-dark hover:text-primary-light" aria-label="Notificaciones">
+            <span class="material-icons">notifications</span>
+          </button>
+          <div class="flex items-center space-x-2">
+            <img alt="Foto de perfil del usuario" class="h-8 w-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPYlZGznwjbqpN6_x03eAzoC3cHnOkMbhbmM60njKzn1DzFMtDnEJWObBYdxx3V_NqSbhNROtuprINEB_QcPkdO4ir7_s7to-QeURFhXyeBRYuyGra7ZaCL3XG-SkCS4LvmYyQAx3SQN27tBr2M-EbA9Zkcmrq0qP-fKX-bMN8JoSJzEpDhqOwi_lp1xCh9YQEjH7NBx9-3VVQTd0T2AnsEc0UxKiKNSkYisAu1UMODSRrEqH5z_aj1bojGCpHrZ9jtD-ob4RaGG0"/>
+            <span class="material-icons text-subtle-light dark:text-subtle-dark">arrow_drop_down</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-6">
+    <!-- Hero -->
+    <section class="bg-primary-DEFAULT text-white rounded-lg p-6 mb-8 shadow-lg"
+             style="background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.85)), url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1400&auto=format&fit=crop') no-repeat center / cover;">
+      <div class="flex flex-col gap-2">
+        <h1 class="text-2xl md:text-3xl font-bold">Bienvenidos</h1>
+        <p class="opacity-90">Accede rápidamente a tus cursos del semestre.</p>
+      </div>
+    </section>
+
+    <!-- Mis cursos -->
+    <section aria-labelledby="titulo-cursos" class="space-y-4">
+      <h2 id="titulo-cursos" class="text-xl font-bold text-primary-DEFAULT dark:text-primary-light">Mis cursos</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Curso 1 -->
+        <a href="home-curso2.html" class="group block bg-card-light dark:bg-card-dark rounded-lg overflow-hidden shadow hover:shadow-lg border border-border-light dark:border-border-dark transition">
+        <div class="relative h-32 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1200&auto=format&fit=crop"
+                alt="Imagen del curso IWI131" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-3 left-3 text-[11px] font-semibold bg-primary-DEFAULT text-white px-2 py-1 rounded-full">INFORMÁTICA</span>
+        </div>
+        <div class="p-4 space-y-2">
+            <h3 class="font-semibold leading-snug">IWI131 · Programación</h3>
+            <p class="text-sm text-subtle-light dark:text-subtle-dark line-clamp-2">Introducción a la programación y resolución de problemas.</p>
+            <div class="pt-2">
+            <div class="h-2 w-full bg-background-light dark:bg-background-dark rounded-full overflow-hidden">
+                <!-- Barra con 55% -->
+                <div class="h-full bg-primary-light" style="width:55%"></div>
+            </div>
+            <p class="mt-1 text-xs text-subtle-light dark:text-subtle-dark">55% completado</p>
+            </div>
+        </div>
+        </a>
+
+        <!-- Curso 2 -->
+        <a href="home-curso2.html" class="group block bg-card-light dark:bg-card-dark rounded-lg overflow-hidden shadow hover:shadow-lg border border-border-light dark:border-border-dark transition">
+          <div class="relative h-32 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop"
+                 alt="Imagen del curso INF343" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-3 left-3 text-[11px] font-semibold bg-primary-DEFAULT text-white px-2 py-1 rounded-full">INFORMÁTICA</span>
+          </div>
+          <div class="p-4 space-y-2">
+            <h3 class="font-semibold leading-snug">INF343 · Sistemas Distribuidos</h3>
+            <p class="text-sm text-subtle-light dark:text-subtle-dark line-clamp-2">Modelos de concurrencia, comunicación y tolerancia a fallos.</p>
+            <div class="pt-2">
+              <div class="h-2 w-full bg-background-light dark:bg-background-dark rounded-full overflow-hidden">
+                <div class="h-full w-2/5 bg-primary-light"></div>
+              </div>
+              <p class="mt-1 text-xs text-subtle-light dark:text-subtle-dark">40% completado</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Curso 3 -->
+        <a href="home-curso2.html" class="group block bg-card-light dark:bg-card-dark rounded-lg overflow-hidden shadow hover:shadow-lg border border-border-light dark:border-border-dark transition">
+          <div class="relative h-32 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop"
+                 alt="Imagen del curso INF331" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-3 left-3 text-[11px] font-semibold bg-primary-DEFAULT text-white px-2 py-1 rounded-full">INFORMÁTICA</span>
+          </div>
+          <div class="p-4 space-y-2">
+            <h3 class="font-semibold leading-snug">INF331 · Pruebas de Software</h3>
+            <p class="text-sm text-subtle-light dark:text-subtle-dark line-clamp-2">Estrategias de testing, cobertura, automatización y QA.</p>
+            <div class="pt-2">
+              <div class="h-2 w-full bg-background-light dark:bg-background-dark rounded-full overflow-hidden">
+                <div class="h-full w-1/2 bg-primary-light"></div>
+              </div>
+              <p class="mt-1 text-xs text-subtle-light dark:text-subtle-dark">50% completado</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

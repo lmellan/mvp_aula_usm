@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Aula USM – Entrega enviada</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+  <!-- Google Fonts + Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+  <!-- Tailwind config (mismos tokens del resto) -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: "#003366", light: "#00AEEF" },
+            "background-light": "#F8F9FA",
+            "background-dark": "#121212",
+            "card-light": "#FFFFFF",
+            "card-dark": "#1E1E1E",
+            "text-light": "#212529",
+            "text-dark": "#E0E0E0",
+            "subtle-light": "#6C757D",
+            "subtle-dark": "#A0A0A0",
+            "border-light": "#DEE2E6",
+            "border-dark": "#333333"
+          },
+          fontFamily: { display: ["Roboto","sans-serif"] },
+          borderRadius: { DEFAULT: "0.5rem" },
+          boxShadow: { card: "0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04)" }
+        }
+      }
+    }
+  </script>
+
+  <!-- Cargar tema al inicio (opcional) -->
+  <script>
+    (function(){
+      const saved = localStorage.getItem('aula.theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+
+<body class="h-full bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+  <!-- Header -->
+  <header class="bg-white dark:bg-card-dark border-b border-border-light dark:border-border-dark sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+      <div class="flex items-center justify-between py-3">
+        <div class="flex items-center gap-3">
+          <a href="home-principal.html" class="inline-flex items-center" aria-label="Ir a la página principal">
+            <img src="//aula.usm.cl/pluginfile.php/1/theme_moove/logo/1756716003/marca-color.png" class="h-8" alt="AULA USM">
+          </a>
+          <nav class="hidden md:flex items-center gap-6 text-sm text-subtle-light dark:text-subtle-dark">
+            <a href="home-principal.html" class="hover:text-primary-light">Página Principal</a>
+            <a href="area-personal.html" class="hover:text-primary-light">Área personal</a>
+            <a href="modulos.html" class="hover:text-primary-light">Mis cursos</a>
+          </nav>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="p-2 rounded hover:bg-background-light dark:hover:bg-card-dark" aria-label="Buscar">
+            <span class="material-icons">search</span>
+          </button>
+          <button class="p-2 rounded hover:bg-background-light dark:hover:bg-card-dark" aria-label="Notificaciones">
+            <span class="material-icons">notifications</span>
+          </button>
+          <button id="toggle-tema" class="p-2 rounded hover:bg-background-light dark:hover:bg-card-dark" aria-label="Cambiar tema">
+            <span class="material-icons dark:hidden">dark_mode</span>
+            <span class="material-icons hidden dark:inline">light_mode</span>
+          </button>
+          <img class="h-8 w-8 rounded-full"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPYlZGznwjbqpN6_x03eAzoC3cHnOkMbhbmM60njKzn1DzFMtDnEJWObBYdxx3V_NqSbhNROtuprINEB_QcPkdO4ir7_s7to-QeURFhXyeBRYuyGra7ZaCL3XG-SkCS4LvmYyQAx3SQN27tBr2M-EbA9Zkcmrq0qP-fKX-bMN8JoSJzEpDhqOwi_lp1xCh9YQEjH7NBx9-3VVQTd0T2AnsEc0UxKiKNSkYisAu1UMODSRrEqH5z_aj1bojGCpHrZ9jtD-ob4RaGG0"
+               alt="Usuario">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-6">
+    <!-- Hero curso -->
+    <section class="bg-primary-DEFAULT text-white rounded-lg p-6 mb-8 shadow-lg"
+             style="background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://i.imgur.com/d9T3Y8y.jpeg') no-repeat center center / cover;">
+      <div>
+        <h1 class="text-2xl md:text-3xl font-bold">IWI131 - Programación</h1>
+        <p class="text-lg opacity-90">Departamento de Informática</p>
+        <p class="text-lg opacity-90"><time datetime="2024">2024</time> - Semestre 1</p>
+      </div>
+    </section>
+
+    <!-- Migas -->
+    <nav class="flex flex-wrap gap-2 text-sm text-subtle-light dark:text-subtle-dark mb-6" aria-label="Breadcrumb">
+      <a href="home-curso.html" class="hover:text-primary-light">Mi Curso</a>
+      <span aria-hidden="true">/</span>
+      <a href="tareas.html" class="hover:text-primary-light">Tareas</a>
+      <span aria-hidden="true">/</span>
+      <span class="text-text-light dark:text-text-dark font-medium" aria-current="page">Tarea enviada</span>
+    </nav>
+
+    <!-- Cabecera de la entrega -->
+    <section class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-6 shadow-card mb-6">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h2 class="text-2xl font-bold text-primary-DEFAULT dark:text-primary-light">Tarea 3: Estructuras de Datos Avanzadas</h2>
+ 
+        </div>
+        <span id="pill-estado" class="inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium
+                     border-sky-200 bg-sky-100 text-sky-800
+                     dark:border-sky-700 dark:bg-sky-900/30 dark:text-sky-200">
+          <span class="material-icons !text-[16px]" aria-hidden="true">hourglass_bottom</span>
+          En corrección
+        </span>
+      </div>
+    </section>
+
+    <!-- KPIs -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+      <div class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-5">
+        <p class="text-xs text-subtle-light dark:text-subtle-dark">Nota</p>
+        <p id="kpi-nota" class="text-2xl font-bold mt-1">—</p>
+      </div>
+      <div class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-5">
+        <p class="text-xs text-subtle-light dark:text-subtle-dark">Aporte (p.p. al promedio final)</p>
+        <p id="kpi-aporte" class="text-2xl font-bold mt-1">—</p>
+      </div>
+    </section>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Columna principal -->
+      <div class="lg:col-span-2 space-y-6">
+        <!-- Retroalimentación -->
+        <section class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-6">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-bold text-primary-DEFAULT dark:text-primary-light">Retroalimentación</h3>
+            <span id="badge-feedback" class="text-xs text-subtle-light dark:text-subtle-dark">Aún no disponible</span>
+          </div>
+          <div id="feedback-contenido" class="mt-3 text-sm text-subtle-light dark:text-subtle-dark">
+            El/la docente publicará comentarios aquí cuando la tarea sea calificada.
+          </div>
+        </section>
+
+        <!-- Rúbrica con columna de puntaje asignado -->
+        <section class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-6">
+          <details class="group" open>
+            <summary class="cursor-pointer flex items-center justify-between">
+              <h3 class="text-lg font-bold text-primary-DEFAULT dark:text-primary-light">Rúbrica de evaluación</h3>
+              <span class="material-icons transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+
+            <div class="mt-4 overflow-x-auto">
+              <table class="min-w-full text-sm" id="tabla-rubrica">
+                <thead class="text-left border-b border-border-light dark:border-border-dark text-subtle-light dark:text-subtle-dark">
+                  <tr>
+                    <th class="py-2 px-3">Criterio</th>
+                    <th class="py-2 px-3">Insuficiente</th>
+                    <th class="py-2 px-3">Aceptable</th>
+                    <th class="py-2 px-3">Destacado</th>
+                    <th class="py-2 px-3">Puntaje asignado</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-border-light dark:divide-border-dark">
+                  <tr data-criterio="correctitud">
+                    <td class="py-2 px-3 font-medium">Correctitud</td>
+                    <td class="py-2 px-3">Errores graves</td>
+                    <td class="py-2 px-3">Funciona con detalles</td>
+                    <td class="py-2 px-3">100% correcto y eficiente</td>
+                    <td class="py-2 px-3 puntaje text-center">-</td>
+                  </tr>
+                  <tr data-criterio="estructura">
+                    <td class="py-2 px-3 font-medium">Estructura</td>
+                    <td class="py-2 px-3">Desordenado</td>
+                    <td class="py-2 px-3">Aceptable</td>
+                    <td class="py-2 px-3">Modular y claro</td>
+                    <td class="py-2 px-3 puntaje text-center">-</td>
+                  </tr>
+                  <tr data-criterio="documentacion">
+                    <td class="py-2 px-3 font-medium">Documentación</td>
+                    <td class="py-2 px-3">Escasa</td>
+                    <td class="py-2 px-3">Suficiente</td>
+                    <td class="py-2 px-3">Excelente</td>
+                    <td class="py-2 px-3 puntaje text-center">-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </section>
+
+        <!-- Historial de intentos -->
+        <section class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-6">
+          <h3 class="text-lg font-bold text-primary-DEFAULT dark:text-primary-light">Intentos</h3>
+          <ol class="mt-3 space-y-3 text-sm">
+            <li class="flex items-start justify-between gap-4">
+              <div>
+                <p class="font-medium">Intento 1</p>
+                <p class="text-subtle-light dark:text-subtle-dark">21/04/2024 22:41 — 2 archivos · 1 comentario</p>
+              </div>
+              <span class="rounded-full bg-slate-200 text-slate-800 dark:bg-slate-800 dark:text-slate-200 text-xs px-2.5 py-0.5">En corrección</span>
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <!-- Columna lateral -->
+      <aside class="space-y-6">
+        <!-- Detalle de la entrega -->
+        <section class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-6">
+          <h3 class="text-lg font-bold text-primary-DEFAULT dark:text-primary-light">Detalle de la entrega</h3>
+          <dl class="text-sm mt-3 space-y-2">
+            <div class="flex justify-between"><dt class="text-subtle-light dark:text-subtle-dark">Estado</dt><dd id="resumen-estado" class="font-medium">En corrección</dd></div>
+            <div class="flex justify-between"><dt class="text-subtle-light dark:text-subtle-dark">Fecha de envío</dt><dd>21/04/2024 22:41</dd></div>
+            <div class="flex justify-between"><dt class="text-subtle-light dark:text-subtle-dark">Fecha límite</dt><dd>22/04/2024 23:59</dd></div>
+            <div class="flex justify-between"><dt class="text-subtle-light dark:text-subtle-dark">Ponderación</dt><dd id="ponderacion">10%</dd></div>
+          </dl>
+
+          <h4 class="mt-4 font-semibold">Archivos</h4>
+          <ul class="mt-2 space-y-2">
+            <li class="flex items-center justify-between gap-2 text-sm">
+              <div class="flex items-center gap-2"><span class="material-icons text-primary-light">insert_drive_file</span> informe.pdf</div>
+              <a href="#" class="text-primary-light hover:underline">Descargar</a>
+            </li>
+            <li class="flex items-center justify-between gap-2 text-sm">
+              <div class="flex items-center gap-2"><span class="material-icons text-primary-light">archive</span> src.zip</div>
+              <a href="#" class="text-primary-light hover:underline">Descargar</a>
+            </li>
+          </ul>
+
+          <h4 class="mt-4 font-semibold">Comentario del estudiante</h4>
+          <p class="text-sm text-subtle-light dark:text-subtle-dark">Se adjuntan supuestos en el README.</p>
+
+          <div class="mt-4">
+            <button class="h-10 w-full rounded-lg bg-primary-light text-white font-semibold hover:opacity-90">Editar entrega</button>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <!-- Mensaje de política de cálculo -->
+    <p class="mt-8 text-xs text-subtle-light dark:text-subtle-dark">
+      El <b>promedio del curso</b> considera la <b>suma de aportes</b> de evaluaciones <b>ya calificadas</b> respecto a su ponderación; <u>no incluye</u> evaluaciones pendientes.
+    </p>
+  </main>
+
+  <script>
+    // Toggle tema
+    document.getElementById('toggle-tema')?.addEventListener('click', () => {
+      const root = document.documentElement;
+      const isDark = root.classList.toggle('dark');
+      localStorage.setItem('aula.theme', isDark ? 'dark' : 'light');
+    });
+
+    // Config (backend)
+    const PONDERACION = 10; // %
+    let nota = null;        // porcentaje 0..100 (null = sin calificar)
+    let feedback = "";      // HTML o texto plano
+
+    // (Opcional) Estructura para rellenar puntajes de rúbrica cuando exista calificación
+    // clave = data-criterio en cada fila; valor = puntaje numérico o null
+    const RUBRICA_PUNTAJES = {
+      correctitud: null,
+      estructura: null,
+      documentacion: null
+    };
+
+    function render() {
+      // Nota y aporte
+      const kpiNota = document.getElementById('kpi-nota');
+      const kpiAporte = document.getElementById('kpi-aporte');
+      if (nota == null) {
+        kpiNota.textContent = '—';
+        kpiAporte.textContent = '—';
+      } else {
+        kpiNota.textContent = nota.toFixed(1) + ' %';
+        const aporte = (nota / 100) * PONDERACION;
+        kpiAporte.textContent = aporte.toFixed(2) + ' %';
+        // Cambiar pill a "Calificada" si quieres cuando exista nota:
+        const pill = document.getElementById('pill-estado');
+        pill.className = "inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium border-emerald-200 bg-emerald-100 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200";
+        pill.innerHTML = `<span class="material-icons !text-[16px]">check_circle</span> Calificada`;
+        document.getElementById('resumen-estado')?.textContent = "Calificada";
+      }
+
+      // Feedback
+      const fbBadge = document.getElementById('badge-feedback');
+      const fbCont = document.getElementById('feedback-contenido');
+      if (feedback && feedback.trim().length > 0) {
+        fbBadge.textContent = "Publicada";
+        fbCont.innerHTML = feedback;
+      } else {
+        fbBadge.textContent = "Aún no disponible";
+        fbCont.textContent = "El/la docente publicará comentarios aquí cuando la tarea sea calificada.";
+      }
+
+      // Rúbrica: puntajes asignados (columna final). Si null -> "-"
+      const filas = document.querySelectorAll('#tabla-rubrica tbody tr');
+      filas.forEach(tr => {
+        const key = tr.getAttribute('data-criterio');
+        const td = tr.querySelector('.puntaje');
+        const val = RUBRICA_PUNTAJES[key];
+        td.textContent = (val == null || val === '') ? '-' : String(val);
+      });
+    }
+
+    render();
+  </script>
+</body>
+</html>
