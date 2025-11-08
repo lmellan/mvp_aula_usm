@@ -1,27 +1,27 @@
+// src/pages/Evaluaciones.jsx
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import TopBar from "../components/TopBar";
+import HeroCurso from "../components/HeroCurso";
 
 /** Umbrales */
-const PASS = 55;        // aprobado por promedio general
-const RISK = 40;        // en riesgo si >= RISK y < PASS
+const PASS = 55;
+const RISK = 40;
 const REQ_TAREAS = 70;
 const REQ_CONTROLES = 50;
 
-/** Datos de ejemplo (equivalentes a tus <tr data-*> ) */
+const CONTAINER = "max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-14 2xl:px-16";
+
+/** Datos de ejemplo */
 const EVALS = [
-  // EXÁMENES (50%)
   { nombre: "Certamen 1", peso: 15, score: 85, max: 100 },
   { nombre: "Certamen 2", peso: 15, score: 48, max: 100 },
-  // CONTROLES (30%)
   { nombre: "Control 1", peso: 5, score: 70, max: 100 },
   { nombre: "Control 2", peso: 5, score: 68, max: 100 },
-  { nombre: "Control 3", peso: 5, score: null, max: null }, // pendiente
-  // TAREAS (15%)
+  { nombre: "Control 3", peso: 5, score: null, max: null },
   { nombre: "Tarea 1: Introducción a la Complejidad", peso: 5, score: 88, max: 100 },
   { nombre: "Tarea 2: Algoritmos de Ordenamiento", peso: 5, score: 82, max: 100 },
   { nombre: "Tarea 3: Estructuras de Datos Avanzadas", peso: 5, score: null, max: null },
-  // PROYECTOS (10%)
   { nombre: "Proyecto 1: Diseño de Algoritmos Recursivos", peso: 5, score: 90, max: 100 },
   { nombre: "Proyecto Final: Análisis de Algoritmos", peso: 5, score: null, max: null },
 ];
@@ -41,11 +41,10 @@ function pill(label, tone = "neutral") {
 }
 
 export default function Evaluaciones() {
-  /** Derivados/calculados */
   const kpis = useMemo(() => {
-    let sumWeighted = 0;            // suma de aportes (puntos de %), solo calificadas
-    let sumWeightsWithScore = 0;    // suma de ponderaciones con nota
-    let avance = 0;                 // % de avance (suma de ponderaciones con nota)
+    let sumWeighted = 0;
+    let sumWeightsWithScore = 0;
+    let avance = 0;
 
     let tareasSum = 0, tareasN = 0;
     let controlesSum = 0, controlesN = 0;
@@ -70,11 +69,7 @@ export default function Evaluaciones() {
         else { estadoTone = "ok"; estadoText = "Aprobado"; }
       }
 
-      return {
-        ...e,
-        pct, aporte,
-        estado: pill(estadoText, estadoTone),
-      };
+      return { ...e, pct, aporte, estado: pill(estadoText, estadoTone) };
     });
 
     const promedioPonderado = sumWeightsWithScore > 0
@@ -112,7 +107,6 @@ export default function Evaluaciones() {
       `${f.peso}%`,
       f.pct == null ? "—" : `${f.pct.toFixed(1)} %`,
       f.aporte == null ? "—" : `${f.aporte.toFixed(2)} %`,
-      // texto del pill (quitamos etiquetas)
       (f.pct == null ? "Pendiente" : (f.pct < RISK ? "Reprobado" : f.pct < PASS ? "En riesgo" : "Aprobado")),
     ]);
     const csv = [headers, ...rows].map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n");
@@ -128,23 +122,13 @@ export default function Evaluaciones() {
       <TopBar />
 
       <main className="flex-1 pt-16">
-        <div className="max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-14 2xl:px-16 py-6">
+        {/* HERO: mismo ancho que en Modulos/Evaluaciones */}
+        <div className={CONTAINER}>
+        <HeroCurso containerClass={CONTAINER} />
+        </div>
 
-          {/* Hero del curso */}
-          <section
-            className="bg-primary-DEFAULT text-white rounded-lg p-6 md:p-8 mb-8 shadow-lg min-h-40 md:min-h-48 flex items-center"
-            style={{
-              background:
-                "linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.85)), url('https://aula.usm.cl/pluginfile.php/7197544/course/overviewfiles/intro.png') no-repeat center center / cover",
-            }}
-          >
-            <div className="flex-1">
-              <h1 className="text-2xl md:text-3xl font-bold">IWI131 - Programación</h1>
-              <p className="text-base md:text-lg opacity-90">Departamento de Informática</p>
-              <p className="text-base md:text-lg opacity-90">2024 - Semestre 1</p>
-            </div>
-          </section>
-
+        {/* Contenedor CON padding para el resto del contenido */}
+        <div className="max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-14 2xl:px-16 ">
           {/* Tabs del curso */}
           <nav aria-label="Secciones del curso" className="mb-6">
             <div className="border-b border-border-light dark:border-border-dark">
@@ -172,11 +156,13 @@ export default function Evaluaciones() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-4">
             <h2 className="text-xl font-bold text-primary-DEFAULT">Panel de calificaciones</h2>
             <div className="flex items-center gap-2">
- 
+              {/* <button onClick={onExportCSV} className="bg-primary-DEFAULT text-white px-3 py-1.5 rounded-md text-sm hover:bg-primary-dark">
+                Exportar CSV
+              </button> */}
             </div>
           </div>
 
-          {/* KPIs: Promedio + Avance */}
+          {/* KPIs */}
           <section className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             <article className="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-4 shadow-sm">
               <div className="flex items-start justify-between">
@@ -209,7 +195,6 @@ export default function Evaluaciones() {
 
           {/* Tabla + Sidebar */}
           <section className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            {/* Tabla (2/3) */}
             <div className="lg:col-span-2">
               <div className="overflow-x-auto rounded-lg border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark shadow-sm">
                 <table className="min-w-full text-sm">
@@ -237,7 +222,6 @@ export default function Evaluaciones() {
               </div>
             </div>
 
-            {/* Sidebar (1/3) */}
             <aside className="space-y-4">
               <article className="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-4 shadow-sm">
                 <p className="text-xs text-subtle-light dark:text-subtle-dark">Promedio de Tareas</p>

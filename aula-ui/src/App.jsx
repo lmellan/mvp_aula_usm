@@ -8,9 +8,10 @@ import Tareas from "./pages/Tareas";
 import Evaluaciones from "./pages/Evaluaciones";
 import Foro from "./pages/Foro";
 import Modulos from "./pages/Modulos";
-import DetalleAviso from "./pages/DetalleAviso";
+import DetalleAviso from "./pages/DetalleAnuncio";
 import HomeCurso from "./pages/HomeCurso";
 import Anuncios from "./pages/Anuncios";
+import DetalleAnuncio from "./pages/DetalleAnuncio";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/detalle-aviso" element={<DetalleAviso />} />
         <Route path="/curso" element={<HomeCurso />} />
         <Route path="/anuncios" element={<Anuncios />} />
+                <Route path="/detalle-anuncio" element={<DetalleAnuncio/>} />
       </Routes>
     </Router>
   );
