@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Aula USM – Entregar Tarea</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+  <!-- Google Fonts + Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+  <!-- Tailwind config (mismos tokens) -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: "#003366", light: "#00AEEF" },
+            "background-light": "#F8F9FA",
+            "background-dark": "#121212",
+            "card-light": "#FFFFFF",
+            "card-dark": "#1E1E1E",
+            "text-light": "#212529",
+            "text-dark": "#E0E0E0",
+            "subtle-light": "#6C757D",
+            "subtle-dark": "#A0A0A0",
+            "border-light": "#DEE2E6",
+            "border-dark": "#333333"
+          },
+          fontFamily: { display: ["Roboto","sans-serif"] },
+          borderRadius: { DEFAULT: "0.5rem" },
+          boxShadow: {
+            card: "0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04)"
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Cargar tema guardado antes de pintar (opcional) -->
+  <script>
+    (function(){
+      const saved = localStorage.getItem('aula.theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+
+<body class="h-full bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+  <!-- Header compacto -->
+  <header class="bg-white dark:bg-card-dark border-b border-border-light dark:border-border-dark sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between py-3">
+        <div class="flex items-center gap-3">
+          <a href="home-principal.html" class="inline-flex items-center" aria-label="Ir a la página principal">
+            <img src="//aula.usm.cl/pluginfile.php/1/theme_moove/logo/1756716003/marca-color.png" class="h-8" alt="AULA USM">
+          </a>
+          <nav class="hidden md:flex items-center gap-6 text-sm text-subtle-light dark:text-subtle-dark">
+            <a href="home-principal.html" class="hover:text-primary-light">Página Principal</a>
+            <a href="area-personal.html" class="hover:text-primary-light">Área personal</a>
+            <a href="modulos.html" class="hover:text-primary-light">Mis cursos</a>
+          </nav>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="p-2 rounded hover:bg-background-light dark:hover:bg-card-dark" aria-label="Buscar">
+            <span class="material-icons">search</span>
+          </button>
+          <button class="p-2 rounded hover:bg-background-light dark:hover:bg-card-dark" aria-label="Notificaciones">
+            <span class="material-icons">notifications</span>
+          </button>
+          <button id="toggle-tema" class="p-2 rounded hover:bg-background-light dark:hover:bg-card-dark" aria-label="Cambiar tema">
+            <span class="material-icons dark:hidden">dark_mode</span>
+            <span class="material-icons hidden dark:inline">light_mode</span>
+          </button>
+          <img class="h-8 w-8 rounded-full"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPYlZGznwjbqpN6_x03eAzoC3cHnOkMbhbmM60njKzn1DzFMtDnEJWObBYdxx3V_NqSbhNROtuprINEB_QcPkdO4ir7_s7to-QeURFhXyeBRYuyGra7ZaCL3XG-SkCS4LvmYyQAx3SQN27tBr2M-EbA9Zkcmrq0qP-fKX-bMN8JoSJzEpDhqOwi_lp1xCh9YQEjH7NBx9-3VVQTd0T2AnsEc0UxKiKNSkYisAu1UMODSRrEqH5z_aj1bojGCpHrZ9jtD-ob4RaGG0"
+               alt="Usuario">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-6">
+    <!-- Hero curso -->
+    <section class="bg-primary-DEFAULT text-white rounded-lg p-6 mb-8 shadow-lg"
+             style="background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://i.imgur.com/d9T3Y8y.jpeg') no-repeat center center / cover;">
+      <div>
+        <h1 class="text-2xl md:text-3xl font-bold">IWI131 - Programación</h1>
+        <p class="text-lg opacity-90">Departamento de Informática</p>
+        <p class="text-lg opacity-90"><time datetime="2024">2024</time> - Semestre 1</p>
+      </div>
+    </section>
+
+    <!-- Migas -->
+    <nav class="flex flex-wrap gap-2 text-sm text-subtle-light dark:text-subtle-dark mb-6" aria-label="Breadcrumb">
+      <a href="home-curso.html" class="hover:text-primary-light">Mi Curso</a>
+      <span aria-hidden="true">/</span>
+      <a href="tareas.html" class="hover:text-primary-light">Tareas</a>
+      <span aria-hidden="true">/</span>
+      <span class="text-text-light dark:text-text-dark font-medium" aria-current="page">Entregar Tarea</span>
+    </nav>
+
+    <!-- Cabecera tarea -->
+    <section class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-6 shadow-card mb-6">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h2 class="text-2xl font-bold text-primary-DEFAULT dark:text-primary-light">Tarea 3: Estructuras de Datos Avanzadas</h2>
+          <p class="mt-2 text-sm text-subtle-light dark:text-subtle-dark">
+            Fecha límite: <time datetime="2024-04-22">22 de abril de 2024</time> · Pondera 10% · Formato: PDF/ZIP
+          </p>
+        </div>
+        <span class="inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium
+                     border-amber-200 bg-amber-100 text-amber-800
+                     dark:border-amber-700 dark:bg-amber-900/30 dark:text-amber-200">
+          <span class="material-icons !text-[16px]" aria-hidden="true">hourglass_bottom</span>
+          Pendiente
+        </span>
+      </div>
+    </section>
+
+    <!-- Formulario entrega -->
+    <!-- 👇 Cambio aquí: redirige al confirmar -->
+    <form class="grid grid-cols-1 lg:grid-cols-3 gap-8"
+          onsubmit="event.preventDefault(); window.location.href='tarea-entregada.html';">
+      <!-- Columna principal -->
+      <div class="lg:col-span-2 space-y-6">
+
+        <!-- Archivos -->
+        <section class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-6 shadow-sm">
+          <h3 class="text-lg font-bold text-primary-DEFAULT dark:text-primary-light mb-3">Subir archivos</h3>
+
+          <!-- Zona drag & drop -->
+          <label for="file-input"
+                 class="block cursor-pointer rounded-lg border-2 border-dashed border-border-light dark:border-border-dark p-6 text-center hover:bg-background-light/60 dark:hover:bg-card-dark/60 transition">
+            <span class="material-icons align-middle">upload_file</span>
+            <p class="mt-1 font-medium">Arrastra tus archivos aquí o <span class="text-primary-light">explora</span></p>
+            <p class="text-xs text-subtle-light dark:text-subtle-dark">Formatos aceptados: PDF, ZIP, JPG/PNG · Máx. 20MB c/u</p>
+            <input id="file-input" type="file" class="sr-only" multiple accept=".pdf,.zip,.jpg,.jpeg,.png" />
+          </label>
+
+          <!-- Lista archivos seleccionados -->
+          <ul id="file-list" class="mt-4 space-y-2 text-sm"></ul>
+        </section>
+
+        <!-- Comentarios -->
+        <section class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-6 shadow-sm">
+          <h3 class="text-lg font-bold text-primary-DEFAULT dark:text-primary-light mb-3">Comentarios para el docente</h3>
+          <textarea id="comentarios" rows="5" class="w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark"
+                    placeholder="Escribe aclaraciones, supuestos o instrucciones para revisar tu entrega..."></textarea>
+        </section>
+
+        <!-- Enlaces -->
+        <section class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-6 shadow-sm">
+          <h3 class="text-lg font-bold text-primary-DEFAULT dark:text-primary-light mb-3">Enlaces (opcional)</h3>
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-3">
+              <span class="material-icons text-primary-light">link</span>
+              <input type="url" placeholder="URL a repositorio, drive, demo..."
+                     class="flex-1 rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark" />
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="material-icons text-primary-light">link</span>
+              <input type="url" placeholder="Otra URL relevante (opcional)"
+                     class="flex-1 rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark" />
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Columna lateral -->
+      <aside class="space-y-6">
+        <!-- Resumen -->
+        <section class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-6 shadow-sm">
+          <h3 class="text-lg font-bold text-primary-DEFAULT dark:text-primary-light mb-3">Resumen de la entrega</h3>
+          <dl class="text-sm space-y-2">
+            <div class="flex justify-between">
+              <dt class="text-subtle-light dark:text-subtle-dark">Estado</dt>
+              <dd class="font-medium">Pendiente</dd>
+            </div>
+            <div class="flex justify-between">
+              <dt class="text-subtle-light dark:text-subtle-dark">Fecha límite</dt>
+              <dd><time datetime="2024-04-22">22/04/2024</time></dd>
+            </div>
+            <div class="flex justify-between">
+              <dt class="text-subtle-light dark:text-subtle-dark">Intentos</dt>
+              <dd>Sin enviar</dd>
+            </div>
+          </dl>
+          <a href="tareas.html" class="mt-4 inline-flex items-center gap-1 text-sm text-primary-light hover:underline">
+            <span class="material-icons !text-[18px]">arrow_back</span> Volver a Tareas
+          </a>
+        </section>
+
+        <!-- Acciones -->
+        <section class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-6 shadow-sm">
+          <div class="flex flex-col gap-3">
+            <button type="submit"
+                    class="h-11 rounded-lg bg-primary-light text-white font-semibold hover:opacity-90">
+              Entregar tarea
+            </button>
+            <button type="button"
+                    class="h-11 rounded-lg border border-border-light dark:border-border-dark hover:bg-background-light/60 dark:hover:bg-card-dark/60"
+                    onclick="alert('Mock: borrador guardado');">
+              Guardar borrador
+            </button>
+          </div>
+          <p class="mt-3 text-xs text-subtle-light dark:text-subtle-dark">
+            Al entregar, aceptas que tu envío puede ser analizado con herramientas antiplagio.
+          </p>
+        </section>
+      </aside>
+    </form>
+  </main>
+
+  <script>
+    // Toggle tema
+    document.getElementById('toggle-tema')?.addEventListener('click', () => {
+      const root = document.documentElement;
+      const isDark = root.classList.toggle('dark');
+      localStorage.setItem('aula.theme', isDark ? 'dark' : 'light');
+    });
+
+    // Listado de archivos seleccionados (mock)
+    const input = document.getElementById('file-input');
+    const list = document.getElementById('file-list');
+    input?.addEventListener('change', () => {
+      list.innerHTML = '';
+      Array.from(input.files || []).forEach((f) => {
+        const li = document.createElement('li');
+        li.className = 'flex items-center justify-between gap-2 rounded border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-3 py-2';
+        li.innerHTML = `
+          <div class="flex items-center gap-2">
+            <span class="material-icons text-primary-light">insert_drive_file</span>
+            <span class="truncate max-w-[16rem] md:max-w-[22rem]" title="${f.name}">${f.name}</span>
+          </div>
+          <span class="text-xs text-subtle-light dark:text-subtle-dark">${(f.size/1024/1024).toFixed(2)} MB</span>
+        `;
+        list.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>

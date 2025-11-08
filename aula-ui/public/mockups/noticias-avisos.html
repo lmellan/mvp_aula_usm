@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aula USM - Inteligencia Artificial</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: { DEFAULT: "#003366", light: "#00AEEF" },
+          "background-light": "#F8F9FA",
+          "background-dark": "#121212",
+          "card-light": "#FFFFFF",
+          "card-dark": "#1E1E1E",
+          "text-light": "#212529",
+          "text-dark": "#E0E0E0",
+          "subtle-light": "#6C757D",
+          "subtle-dark": "#A0A0A0",
+          "border-light": "#DEE2E6",
+          "border-dark": "#333333"
+        },
+        fontFamily: { display: ["Roboto", "sans-serif"] },
+        borderRadius: { DEFAULT: "0.5rem" },
+      },
+    },
+  };
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div id="root">
+  <!-- Header -->
+<header class="bg-white dark:bg-card-dark border-b border-border-light dark:border-border-dark sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between py-3">
+        <div class="flex items-center gap-3">
+          <a href="home-principal.html" class="inline-flex items-center" aria-label="Ir a la página principal">
+            <img src="//aula.usm.cl/pluginfile.php/1/theme_moove/logo/1756716003/marca-color.png" class="h-8" alt="AULA USM">
+          </a>
+          <nav class="hidden md:flex items-center gap-6 text-sm text-subtle-light dark:text-subtle-dark">
+            <a href="home-principal.html" class="hover:text-primary-light">Página Principal</a>
+            <a href="area-personal.html" class="hover:text-primary-light">Área personal</a>
+            <a href="modulos.html" class="hover:text-primary-light">Mis cursos</a>
+          </nav>
+        </div>
+        <div class="flex items-center gap-3">
+          <button class="text-subtle-light dark:text-subtle-dark hover:text-primary-light" aria-label="Buscar">
+            <span class="material-icons">search</span>
+          </button>
+          <button class="text-subtle-light dark:text-subtle-dark hover:text-primary-light" aria-label="Notificaciones">
+            <span class="material-icons">notifications</span>
+          </button>
+          <img class="h-8 w-8 rounded-full"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPYlZGznwjbqpN6_x03eAzoC3cHnOkMbhbmM60njKzn1DzFMtDnEJWObBYdxx3V_NqSbhNROtuprINEB_QcPkdO4ir7_s7to-QeURFhXyeBRYuyGra7ZaCL3XG-SkCS4LvmYyQAx3SQN27tBr2M-EbA9Zkcmrq0qP-fKX-bMN8JoSJzEpDhqOwi_lp1xCh9YQEjH7NBx9-3VVQTd0T2AnsEc0UxKiKNSkYisAu1UMODSRrEqH5z_aj1bojGCpHrZ9jtD-ob4RaGG0"
+               alt="Usuario">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-6">
+    <!-- Hero -->
+    <section class="bg-primary-DEFAULT text-white rounded-lg p-6 mb-8 shadow-lg"
+             style="background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://i.imgur.com/d9T3Y8y.jpeg') no-repeat center center / cover;">
+      <div class="flex justify-between items-center">
+        <div>
+          <h1 class="text-2xl md:text-3xl font-bold">IWI131 - Programación</h1>
+          <p class="text-lg opacity-90">Departamento de Informática</p>
+          <p class="text-lg opacity-90">2024 - Semestre 1</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barra de navegación -->
+    <nav aria-label="Secciones del curso" class="mb-6">
+      <div class="border-b border-border-light dark:border-border-dark">
+        <div class="flex gap-6 -mb-px">
+          <!-- Mantengo “Información General” como estilo activo por consistencia visual -->
+          <a href="home-curso2.html"
+            class="px-3 py-2 font-semibold text-primary-DEFAULT dark:text-primary-light border border-border-light dark:border-border-dark border-b-0 rounded-t-lg bg-card-light dark:bg-card-dark shadow-sm"
+            aria-current="page">
+            Información General
+        </a>
+          <a href="list-modulos.html" class="px-3 py-2 text-primary-DEFAULT/90 dark:text-primary-light/90 hover:text-primary-light">Material</a>
+          <a href="tareas.html" class="px-3 py-2 text-primary-DEFAULT/90 dark:text-primary-light/90 hover:text-primary-light">Tareas</a>
+          <a href="evaluaciones.html" class="px-3 py-2 text-primary-DEFAULT/90 dark:text-primary-light/90 hover:text-primary-light">Calificaciones</a>
+          <a href="foro.html" class="px-3 py-2 text-primary-DEFAULT/90 dark:text-primary-light/90 hover:text-primary-light">Foro</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contenido: Noticias y Avisos (lista completa) -->
+    <section aria-labelledby="titulo-avisos" class="space-y-6">
+      <!-- Acciones superiores -->
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <h2 id="titulo-avisos" class="text-xl font-bold text-primary-DEFAULT dark:text-primary-light">
+          Noticias y Avisos  
+        </h2>
+        <a href="home-curso2.html"
+           class="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-border-light dark:border-border-dark text-sm font-semibold hover:bg-background-light dark:hover:bg-background-dark"
+           aria-label="Volver a Información General">
+          <span class="material-icons text-sm">arrow_back</span>
+          Volver a Información General
+        </a>
+      </div>
+
+      <!-- Filtros -->
+      <div class="flex flex-wrap gap-2">
+        <button class="px-3 py-1.5 rounded-full border border-border-light dark:border-border-dark text-sm hover:bg-background-light dark:hover:bg-background-dark" data-filter="todos">Todos</button>
+        <button class="px-3 py-1.5 rounded-full border border-border-light dark:border-border-dark text-sm hover:bg-background-light dark:hover:bg-background-dark" data-filter="profesor">Profesor</button>
+        <button class="px-3 py-1.5 rounded-full border border-border-light dark:border-border-dark text-sm hover:bg-background-light dark:hover:bg-background-dark" data-filter="ayudante">Ayudante</button>
+        <button class="px-3 py-1.5 rounded-full border border-border-light dark:border-border-dark text-sm hover:bg-background-light dark:hover:bg-background-dark" data-filter="importante">Importantes</button>
+      </div>
+
+      <!-- Lista completa -->
+      <div id="listaNoticias" class="space-y-4">
+        <article class="bg-card-light dark:bg-card-dark p-4 rounded-lg border border-border-light dark:border-border-dark flex items-start gap-4" data-tags="ayudante">
+          <span class="material-icons text-primary-light mt-1">campaign</span>
+          <div>
+            <h3 class="font-bold">Resultados Tarea 2 publicados</h3>
+            <p class="text-sm text-subtle-light dark:text-subtle-dark">Revisa tu calificación en la sección de Calificaciones.</p>
+            <div class="text-xs text-subtle-light dark:text-subtle-dark">Ayudante — hace 1 días</div>
+          </div>
+        </article>
+
+        <a href="detalle-aviso.html"
+          class="block bg-card-light dark:bg-card-dark p-4 rounded-lg border border-border-light dark:border-border-dark shadow-sm hover:shadow-md transition-shadow focus:outline-none focus:ring-2 focus:ring-primary-light"
+          data-tags="profesor importante">
+          <div class="flex items-start space-x-4">
+            <span class="material-icons text-primary-light mt-1" aria-hidden="true">priority_high</span>
+            <div>
+              <h3 class="font-bold text-text-light dark:text-text-dark">Cambio de fecha Certamen 2</h3>
+              <p class="text-sm text-subtle-light dark:text-subtle-dark">
+                Estimadas/os, debido a ajustes de coordinación con otros cursos y ...
+              </p>
+              <span class="text-xs text-subtle-light dark:text-subtle-dark">
+                Publicado por Profesor German Fernandez — hace 2 días
+              </span>
+            </div>
+          </div>
+          <span class="sr-only">Ir al detalle del aviso Cambio de fecha Certamen 2</span>
+        </a>
+
+
+        <article class="bg-card-light dark:bg-card-dark p-4 rounded-lg border border-border-light dark:border-border-dark flex items-start gap-4" data-tags="ayudante">
+          <span class="material-icons text-primary-light mt-1">campaign</span>
+          <div>
+            <h3 class="font-bold">Resultados Tarea 1 publicados</h3>
+            <p class="text-sm text-subtle-light dark:text-subtle-dark">Revisa tu calificación en la sección de Calificaciones.</p>
+            <div class="text-xs text-subtle-light dark:text-subtle-dark">Ayudante — hace 3 días</div>
+          </div>
+        </article>
+
+        <article class="bg-card-light dark:bg-card-dark p-4 rounded-lg border border-border-light dark:border-border-dark flex items-start gap-4" data-tags="profesor">
+          <span class="material-icons text-primary-light mt-1">school</span>
+          <div>
+            <h3 class="font-bold">Lectura recomendada Unidad 2</h3>
+            <p class="text-sm text-subtle-light dark:text-subtle-dark">Se agregó un paper opcional para profundizar en recursión.</p>
+            <div class="text-xs text-subtle-light dark:text-subtle-dark">Profesor — hace 6 días</div>
+          </div>
+        </article>
+
+        <article class="bg-card-light dark:bg-card-dark p-4 rounded-lg border border-border-light dark:border-border-dark flex items-start gap-4" data-tags="ayudante importante">
+          <span class="material-icons text-primary-light mt-1">groups</span>
+          <div>
+            <h3 class="font-bold">Revisión extra de proyectos</h3>
+            <p class="text-sm text-subtle-light dark:text-subtle-dark">Habrá bloque adicional de revisión este viernes 17:00.</p>
+            <div class="text-xs text-subtle-light dark:text-subtle-dark">Ayudante — hace 1 semana</div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- Script de filtros -->
+<script>
+  const buttons = document.querySelectorAll('[data-filter]');
+  const cards = document.querySelectorAll('#listaNoticias [data-tags]');
+  buttons.forEach(b => {
+    b.addEventListener('click', () => {
+      const tag = b.getAttribute('data-filter');
+      cards.forEach(c => {
+        const has = c.getAttribute('data-tags').includes(tag);
+        c.classList.toggle('hidden', tag !== 'todos' && !has);
+      });
+      buttons.forEach(x => x.classList.remove('ring-2','ring-primary-DEFAULT'));
+      b.classList.add('ring-2','ring-primary-DEFAULT');
+    });
+  });
+</script>
+</body>
+</html>
