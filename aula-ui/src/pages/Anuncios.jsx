@@ -2,18 +2,55 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import TopBar from "../components/TopBar";
-import HeroCurso from "../components/HeroCurso"; // <-- faltaba
+import HeroCurso from "../components/HeroCurso";
 
-/** Contenedor unificado (igual que HomeCurso/Modulos/Evaluaciones) */
-const CONTAINER = "max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-14 2xl:px-16";
+/** Contenedor unificado (igual que HomeCurso/Modulos/Evaluaciones/Tareas) */
+const CONTAINER =
+  "max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-14 2xl:px-16";
 
-/** Datos de avisos */
+/** Datos de avisos (ordenados de más reciente a más antiguo) */
 const NEWS = [
-  { id: "t2", icon: "campaign", title: "Resultados Tarea 2 publicados", body: "Revisa tu calificación en la sección de Calificaciones.", meta: "Ayudante — hace 1 días", tags: ["ayudante"] },
-  { id: "c2", icon: "priority_high", title: "Cambio de fecha Certamen 2", body: "Estimadas/os, debido a ajustes de coordinación con otros cursos y ...", meta: "Publicado por Profesor German Fernandez — hace 2 días", tags: ["profesor", "importante"], to: "/detalle-aviso" },
-  { id: "t1", icon: "campaign", title: "Resultados Tarea 1 publicados", body: "Revisa tu calificación en la sección de Calificaciones.", meta: "Ayudante — hace 3 días", tags: ["ayudante"] },
-  { id: "lec2", icon: "school", title: "Lectura recomendada Unidad 2", body: "Se agregó un paper opcional para profundizar en recursión.", meta: "Profesor — hace 6 días", tags: ["profesor"] },
-  { id: "revx", icon: "groups", title: "Revisión extra de proyectos", body: "Habrá bloque adicional de revisión este viernes 17:00.", meta: "Ayudante — hace 1 semana", tags: ["ayudante", "importante"] },
+  {
+    id: "t2",
+    icon: "campaign",
+    title: "Resultados Tarea 2 publicados",
+    body: "Se ha actualizado tu nota. Revisa tu calificación en la sección de cali...",
+    meta: "Ayudante — hace 1 días",
+    tags: ["ayudante"],
+  },
+  {
+    id: "c2",
+    icon: "priority_high",
+    title: "Cambio de fecha Certamen 2",
+    body: "Estimadas/os, debido a ajustes de coordinación con otros cursos y ...",
+    meta: "Publicado por Profesor German Fernandez — hace 2 días",
+    tags: ["profesor", "importante"],
+    to: "/detalle-aviso",
+  },
+  {
+    id: "t1",
+    icon: "campaign",
+    title: "Resultados Tarea 1 publicados",
+    body: "Revisa tu calificación en la sección de Calificaciones.",
+    meta: "Ayudante — hace 3 días",
+    tags: ["ayudante"],
+  },
+  {
+    id: "lec2",
+    icon: "school",
+    title: "Lectura recomendada Unidad 2",
+    body: "Se agregó un paper opcional para profundizar en recursión.",
+    meta: "Profesor — hace 6 días",
+    tags: ["profesor"],
+  },
+  {
+    id: "revx",
+    icon: "groups",
+    title: "Revisión extra de proyectos",
+    body: "Habrá bloque adicional de revisión este viernes 17:00.",
+    meta: "Ayudante — hace 1 semana",
+    tags: ["ayudante", "importante"],
+  },
 ];
 
 const FILTERS = [
@@ -36,12 +73,12 @@ export default function Anuncios() {
       <TopBar />
 
       <main className="flex-1 pt-16">
-        {/* HERO: mismo ancho que en Modulos/Evaluaciones */}
+        {/* HERO: mismo ancho que en Modulos/Evaluaciones/Tareas */}
         <div className={CONTAINER}>
-        <HeroCurso containerClass={CONTAINER} />
+          <HeroCurso containerClass={CONTAINER} />
         </div>
-        
-        {/* Tabs / Nav — mismo ancho que Modulos */}
+
+        {/* Tabs / Nav — mismo ancho que el resto de secciones */}
         <div className={`${CONTAINER} mt-6`}>
           <nav aria-label="Secciones del curso" className="mb-6">
             <div className="border-b border-border-light dark:border-border-dark">
@@ -52,16 +89,28 @@ export default function Anuncios() {
                 >
                   Información General
                 </span>
-                <Link to="/modulos" className="px-3 py-2 text-text-light dark:text-text-dark hover:text-primary-light transition-colors">
+                <Link
+                  to="/modulos"
+                  className="px-3 py-2 text-text-light dark:text-text-dark hover:text-primary-light transition-colors"
+                >
                   Material
                 </Link>
-                <Link to="/tareas" className="px-3 py-2 text-text-light dark:text-text-dark hover:text-primary-light transition-colors">
+                <Link
+                  to="/tareas"
+                  className="px-3 py-2 text-text-light dark:text-text-dark hover:text-primary-light transition-colors"
+                >
                   Tareas
                 </Link>
-                <Link to="/evaluaciones" className="px-3 py-2 text-text-light dark:text-text-dark hover:text-primary-light transition-colors">
+                <Link
+                  to="/evaluaciones"
+                  className="px-3 py-2 text-text-light dark:text-text-dark hover:text-primary-light transition-colors"
+                >
                   Calificaciones
                 </Link>
-                <Link to="/foro" className="px-3 py-2 text-text-light dark:text-text-dark hover:text-primary-light transition-colors">
+                <Link
+                  to="/foro"
+                  className="px-3 py-2 text-text-light dark:text-text-dark hover:text-primary-light transition-colors"
+                >
                   Foro
                 </Link>
               </div>
@@ -69,22 +118,26 @@ export default function Anuncios() {
           </nav>
         </div>
 
-        {/* Contenido principal — mismo contenedor y con padding vertical */}
+        {/* Contenido principal — mismo contenedor y padding vertical */}
         <div className={`${CONTAINER} pb-8`}>
           {/* Encabezado + volver */}
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-4">
-            <h2 className="text-xl font-bold text-primary-DEFAULT">Noticias y Avisos</h2>
+            <h2 className="text-xl font-bold text-primary-DEFAULT">
+              Noticias y Avisos
+            </h2>
             <Link
               to="/curso"
               className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-border-light dark:border-border-dark text-sm font-semibold hover:bg-background-light dark:hover:bg-background-dark transition-colors"
               aria-label="Volver a Información General"
             >
-              <span className="material-icons !text-[18px]">arrow_back</span>
+              <span className="material-icons !text-[18px]">
+                arrow_back
+              </span>
               Volver a Información General
             </Link>
           </div>
 
-          {/* Filtros – siempre legibles, activo en azul */}
+          {/* Filtros */}
           <div className="flex flex-wrap gap-2 mb-6">
             {FILTERS.map((f) => {
               const isActive = active === f.key;
@@ -107,43 +160,52 @@ export default function Anuncios() {
             })}
           </div>
 
-          {/* Anuncios en fila (scroll horizontal y snap) */}
-          <div className="relative">
-            <div className="flex gap-4 overflow-x-auto pb-3 snap-x snap-mandatory scrollbar-thin">
-              {items.map((n) => {
-                const CardInner = (
-                  <div className="flex items-start gap-4">
-                    <span className="material-icons text-primary-light mt-1" aria-hidden="true">
-                      {n.icon}
+          {/* Avisos: mismo patrón de layout que Tareas.jsx */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {items.map((n) => {
+              const CardInner = (
+                <div className="flex items-start gap-4">
+                  <span
+                    className="material-icons text-primary-light mt-1"
+                    aria-hidden="true"
+                  >
+                    {n.icon}
+                  </span>
+                  <div>
+                    <h3 className="font-bold text-text-light dark:text-text-dark">
+                      {n.title}
+                    </h3>
+                    <p className="text-sm text-subtle-light dark:text-subtle-dark">
+                      {n.body}
+                    </p>
+                    <span className="text-xs text-subtle-light dark:text-subtle-dark">
+                      {n.meta}
                     </span>
-                    <div>
-                      <h3 className="font-bold text-text-light dark:text-text-dark">{n.title}</h3>
-                      <p className="text-sm text-subtle-light dark:text-subtle-dark">{n.body}</p>
-                      <span className="text-xs text-subtle-light dark:text-subtle-dark">{n.meta}</span>
-                    </div>
                   </div>
-                );
+                </div>
+              );
 
-                const classes =
-                  "min-w-[320px] md:min-w-[380px] lg:min-w-[420px] snap-start bg-card-light dark:bg-card-dark p-4 rounded-lg border border-border-light dark:border-border-dark shadow-sm hover:shadow-md transition-shadow";
+              const classes =
+                "bg-card-light dark:bg-card-dark p-4 rounded-lg border border-border-light dark:border-border-dark shadow-sm hover:shadow-md transition-shadow h-full";
 
-                return n.to ? (
-                  <Link key={n.id} to={n.to} className={classes}>
-                    {CardInner}
-                    <span className="sr-only">Ir al detalle del aviso</span>
-                  </Link>
-                ) : (
-                  <article key={n.id} className={classes}>
-                    {CardInner}
-                  </article>
-                );
-              })}
-            </div>
+              return n.to ? (
+                <Link key={n.id} to={n.to} className={classes}>
+                  {CardInner}
+                  <span className="sr-only">Ir al detalle del aviso</span>
+                </Link>
+              ) : (
+                <article key={n.id} className={classes}>
+                  {CardInner}
+                </article>
+              );
+            })}
           </div>
 
           {/* Mensaje si no hay items */}
           {items.length === 0 && (
-            <p className="mt-4 text-sm text-subtle-light dark:text-subtle-dark">No hay avisos para este filtro.</p>
+            <p className="mt-4 text-sm text-subtle-light dark:text-subtle-dark">
+              No hay avisos para este filtro.
+            </p>
           )}
         </div>
       </main>

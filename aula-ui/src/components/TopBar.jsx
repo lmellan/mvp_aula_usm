@@ -45,7 +45,7 @@ export default function TopBar({
                 <span
                   className={`relative w-10 h-5 rounded-full border transition-colors ${
                     editMode
-                      ? "bg-primary-DEFAULT border-primary-DEFAULT"
+                      ? "bg-sky-300 border-sky-500 dark:bg-sky-500 dark:border-sky-400"
                       : "bg-gray-300 dark:bg-gray-500 border-gray-400 dark:border-gray-500"
                   }`}
                 >

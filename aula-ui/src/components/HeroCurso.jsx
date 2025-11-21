@@ -26,7 +26,7 @@ export default function HeroCurso({
         <p className="text-lg md:text-xl opacity-90">{periodo}</p>
       </div>
 
-      {/* 🔵 Overlay transparente SOLO en modo edición */}
+ 
       {editMode && (
         <div
           className="absolute inset-0 pointer-events-none"

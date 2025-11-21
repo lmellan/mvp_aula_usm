@@ -103,7 +103,7 @@ export default function Evaluaciones() {
   const [blocksOrder, setBlocksOrder] = useState(INITIAL_BLOCK_ORDER);
   const [draggedBlockId, setDraggedBlockId] = useState(null);
 
-  // Clase común para TODOS los KPIs pequeños (misma altura y centrados)
+  // Clase común para TODOS los KPIs pequeños (misma altura y contenido completo)
   const smallKpiClass =
     "bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg p-4 shadow-sm h-full min-h-[170px] flex flex-col justify-between";
 
@@ -374,9 +374,9 @@ export default function Evaluaciones() {
       />
 
       <main className="flex-1 pt-16">
-        {/* HERO: mismo ancho que en tu snippet (igual que el navbar) */}
+        {/* HERO: mismo ancho que el navbar, editMode manejado dentro de HeroCurso */}
         <div className={CONTAINER}>
-          <HeroCurso containerClass={CONTAINER} />
+          <HeroCurso containerClass={CONTAINER} editMode={editMode} />
         </div>
 
         {/* Contenedor para el resto del contenido con el mismo ancho */}
@@ -424,11 +424,10 @@ export default function Evaluaciones() {
               <span>
                   Estás en <strong>modo edición</strong>. Arrastra cualquier{" "}
                   <strong>bloque</strong> para cambiar su orden. 
-              </span>
+                </span>
+              </div>
             </div>
-          </div>
-        )}
- 
+          )}
 
           {/* Encabezado + (posible) export */}
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-4">

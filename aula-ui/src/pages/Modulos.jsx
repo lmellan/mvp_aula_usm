@@ -602,7 +602,7 @@ export default function Modulos() {
                 to="/foro"
                 className="px-3 py-2 text-text-light dark:text-text-dark hover:text-primary-light transition-colors"
               >
-                Foro
+                Foro 
               </Link>
             </div>
           </div>
