@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import TopBar from "../components/TopBar";
 import HeroCurso from "../components/HeroCurso";
 
+import programaCursoPDF from "../documentos/programa_curso.pdf";
+import planificacionPDF from "../documentos/planificacion.pdf";
+import reglasCursoPDF from "../documentos/Reglas_curso.pdf";
+
 const CONTAINER = "max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-14 2xl:px-16";
 
 export default function HomeCurso() {
@@ -13,12 +17,12 @@ export default function HomeCurso() {
       <main className="flex-1 pt-16">
         {/* HERO: mismo ancho que en Modulos/Evaluaciones */}
         <div className={CONTAINER}>
-        <HeroCurso containerClass={CONTAINER} />
+          <HeroCurso containerClass={CONTAINER} />
         </div>
 
         {/* Tabs / Nav — mismo ancho que Modulos */}
-         <div className={`${CONTAINER} mt-6`}> 
-        <nav aria-label="Secciones del curso" className="mb-6">
+        <div className={`${CONTAINER} mt-6`}>
+          <nav aria-label="Secciones del curso" className="mb-6">
             <div className="border-b border-border-light dark:border-border-dark">
               <div className="flex flex-wrap gap-4 -mb-px">
                 <span
@@ -27,24 +31,35 @@ export default function HomeCurso() {
                 >
                   Información General
                 </span>
-                <Link to="/modulos" className="px-3 py-2 text-text-light dark:text-text-dark hover:text-primary-light transition-colors">
+                <Link
+                  to="/modulos"
+                  className="px-3 py-2 text-text-light dark:text-text-dark hover:text-primary-light transition-colors"
+                >
                   Material
                 </Link>
-                <Link to="/tareas" className="px-3 py-2 text-text-light dark:text-text-dark hover:text-primary-light transition-colors">
+                <Link
+                  to="/tareas"
+                  className="px-3 py-2 text-text-light dark:text-text-dark hover:text-primary-light transition-colors"
+                >
                   Tareas
                 </Link>
-                <Link to="/evaluaciones" className="px-3 py-2 text-text-light dark:text-text-dark hover:text-primary-light transition-colors">
+                <Link
+                  to="/evaluaciones"
+                  className="px-3 py-2 text-text-light dark:text-text-dark hover:text-primary-light transition-colors"
+                >
                   Calificaciones
                 </Link>
-                <Link to="/foro" className="px-3 py-2 text-text-light dark:text-text-dark hover:text-primary-light transition-colors">
+                <Link
+                  to="/foro"
+                  className="px-3 py-2 text-text-light dark:text-text-dark hover:text-primary-light transition-colors"
+                >
                   Foro
                 </Link>
               </div>
             </div>
- 
-        </nav>
+          </nav>
         </div>
- 
+
         <div className={`${CONTAINER} `}>
           {/* Noticias y Avisos */}
           <section id="avisos" className="space-y-4 mb-10">
@@ -55,9 +70,13 @@ export default function HomeCurso() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Aviso 1 */}
               <div className="bg-card-light dark:bg-card-dark p-5 rounded-lg border border-border-light dark:border-border-dark flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow">
-                <span className="material-icons text-primary-light mt-1">campaign</span>
+                <span className="material-icons text-primary-light mt-1">
+                  campaign
+                </span>
                 <div>
-                  <h3 className="font-bold text-text-light dark:text-text-dark">Resultados Tarea 2 publicados</h3>
+                  <h3 className="font-bold text-text-light dark:text-text-dark">
+                    Resultados Tarea 2 publicados
+                  </h3>
                   <p className="text-sm text-subtle-light dark:text-subtle-dark">
                     Revisa tu calificación en la sección de Calificaciones.
                   </p>
@@ -73,11 +92,16 @@ export default function HomeCurso() {
                 className="bg-card-light dark:bg-card-dark p-5 rounded-lg border border-border-light dark:border-border-dark shadow-sm hover:shadow-md transition-shadow focus:outline-none focus:ring-2 focus:ring-primary-light"
               >
                 <div className="flex items-start gap-4">
-                  <span className="material-icons text-primary-light mt-1">priority_high</span>
+                  <span className="material-icons text-primary-light mt-1">
+                    priority_high
+                  </span>
                   <div>
-                    <h3 className="font-bold text-text-light dark:text-text-dark">Cambio de fecha Certamen 2</h3>
+                    <h3 className="font-bold text-text-light dark:text-text-dark">
+                      Cambio de fecha Certamen 2
+                    </h3>
                     <p className="text-sm text-subtle-light dark:text-subtle-dark">
-                      Estimadas/os, debido a ajustes de coordinación con otros cursos y ...
+                      Estimadas/os, debido a ajustes de coordinación con otros
+                      cursos y ...
                     </p>
                     <span className="text-xs text-subtle-light dark:text-subtle-dark">
                       Publicado por Profesor German Fernandez — hace 2 días
@@ -106,39 +130,81 @@ export default function HomeCurso() {
             </h2>
 
             <ul className="space-y-3">
+              {/* Programa del Curso */}
               <li className="bg-card-light dark:bg-card-dark p-4 rounded-lg border border-border-light dark:border-border-dark shadow-sm hover:shadow-md transition">
                 <div className="flex items-center justify-between">
-                  <Link to="/programa" className="flex items-center text-sm text-text-light dark:text-text-dark hover:text-primary-light transition-colors">
-                    <span className="material-icons text-primary-light mr-3">description</span>
+                  <a
+                    href={programaCursoPDF}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center text-sm text-text-light dark:text-text-dark hover:text-primary-light transition-colors"
+                  >
+                    <span className="material-icons text-primary-light mr-3">
+                      description
+                    </span>
                     Programa del Curso
-                  </Link>
-                  <Link to="/programa" className="material-icons text-subtle-light dark:text-subtle-dark hover:text-primary-light transition-colors" aria-label="Ver programa">
+                  </a>
+                  <a
+                    href={programaCursoPDF}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="material-icons text-subtle-light dark:text-subtle-dark hover:text-primary-light transition-colors"
+                    aria-label="Ver programa"
+                  >
                     visibility
-                  </Link>
+                  </a>
                 </div>
               </li>
 
+              {/* Planificación Semestral */}
               <li className="bg-card-light dark:bg-card-dark p-4 rounded-lg border border-border-light dark:border-border-dark shadow-sm hover:shadow-md transition">
                 <div className="flex items-center justify-between">
-                  <Link to="/planificacion" className="flex items-center text-sm text-text-light dark:text-text-dark hover:text-primary-light transition-colors">
-                    <span className="material-icons text-primary-light mr-3">calendar_today</span>
+                  <a
+                    href={planificacionPDF}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center text-sm text-text-light dark:text-text-dark hover:text-primary-light transition-colors"
+                  >
+                    <span className="material-icons text-primary-light mr-3">
+                      calendar_today
+                    </span>
                     Planificación Semestral
-                  </Link>
-                  <Link to="/planificacion" className="material-icons text-subtle-light dark:text-subtle-dark hover:text-primary-light transition-colors" aria-label="Ver planificación">
+                  </a>
+                  <a
+                    href={planificacionPDF}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="material-icons text-subtle-light dark:text-subtle-dark hover:text-primary-light transition-colors"
+                    aria-label="Ver planificación"
+                  >
                     visibility
-                  </Link>
+                  </a>
                 </div>
               </li>
 
+              {/* Reglas Generales del Curso */}
               <li className="bg-card-light dark:bg-card-dark p-4 rounded-lg border border-border-light dark:border-border-dark shadow-sm hover:shadow-md transition">
                 <div className="flex items-center justify-between">
-                  <Link to="/reglas" className="flex items-center text-sm text-text-light dark:text-text-dark hover:text-primary-light transition-colors">
-                    <span className="material-icons text-primary-light mr-3">gavel</span>
+                  <a
+                    href={reglasCursoPDF}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center text-sm text-text-light dark:text-text-dark hover:text-primary-light transition-colors"
+                  >
+                    <span className="material-icons text-primary-light mr-3">
+                      gavel
+                    </span>
                     Reglas Generales del Curso
-                  </Link>
-                  <Link to="/reglas" className="material-icons text-subtle-light dark:text-subtle-dark hover:text-primary-light transition-colors" aria-label="Ver reglas">
+                  </a>
+                  <a
+                    href={reglasCursoPDF}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="material-icons text-subtle-light dark:text-subtle-dark hover:text-primary-light transition-colors"
+                    aria-label="Ver reglas"
+                  >
                     visibility
-                  </Link>
+                  </a>
                 </div>
               </li>
             </ul>
